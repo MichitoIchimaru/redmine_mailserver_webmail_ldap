@@ -71,6 +71,7 @@ http://[docker起動ホスト]:3002
 <img width="600" src="img/img07.png">
 
 init.ldifにて定義したユーザが登録されていることを確認する  
+init.ldifのアカウントパスワードはすべて "password"  
 <img width="600" src="img/img08.png">
 
 

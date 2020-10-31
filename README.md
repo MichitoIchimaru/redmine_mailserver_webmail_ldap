@@ -117,5 +117,5 @@ https://ksby.hatenablog.com/entry/2018/08/28/021140
 かんがるーさんの日記 "( その２８ )"  
 https://ksby.hatenablog.com/entry/2019/01/05/225907
 
-docker上にRedmine、gitlabのopenLDAP認証環境を構築
+docker上にRedmine、gitlabのopenLDAP認証環境を構築  
 https://qiita.com/ir-shin1/items/12d0dbea40d1f1f06747

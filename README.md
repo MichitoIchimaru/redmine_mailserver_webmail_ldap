@@ -1,5 +1,6 @@
 ## Redmine + MailServer(SMTP/POP3/IMAP) + WebMailClient + OpenLDAP
 Redmineの動作確認用のdocker-composeです。  
+メールサーバとLDAPの連携がどうしてもうまくいかなかったので、それぞれ個別にユーザ登録する形にしています。  
 実運用では利用しないでください。
 
 ### 起動

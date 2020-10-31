@@ -1,0 +1,57 @@
+dn: ou=people,dc=example,dc=com
+objectClass: organizationalUnit
+ou: people
+
+dn: uid=redmine,ou=people,dc=example,dc=com
+uid: redmine
+cn: redmine
+mail: redmine@example.com
+objectClass: inetOrgPerson
+objectClass: top
+userPassword: {SSHA}/Ufyq/UFeL2pphIslyRTts1snDyiJ4+t
+sn: redmine
+
+dn: uid=test01,ou=people,dc=example,dc=com
+uid: test01
+cn: test01
+mail: test01@example.com
+objectClass: inetOrgPerson
+objectClass: top
+userPassword: {SSHA}/Ufyq/UFeL2pphIslyRTts1snDyiJ4+t
+sn: test01
+
+dn: uid=test02,ou=people,dc=example,dc=com
+uid: test02
+cn: test02
+mail: test02@example.com
+objectClass: inetOrgPerson
+objectClass: top
+userPassword: {SSHA}/Ufyq/UFeL2pphIslyRTts1snDyiJ4+t
+sn: test02
+
+dn: uid=test03,ou=people,dc=example,dc=com
+uid: test03
+cn: test03
+mail: test03@example.com
+objectClass: inetOrgPerson
+objectClass: top
+userPassword: {SSHA}/Ufyq/UFeL2pphIslyRTts1snDyiJ4+t
+sn: test03
+
+dn: uid=test04,ou=people,dc=example,dc=com
+uid: test04
+cn: test04
+mail: test04@example.com
+objectClass: inetOrgPerson
+objectClass: top
+userPassword: {SSHA}/Ufyq/UFeL2pphIslyRTts1snDyiJ4+t
+sn: test04
+
+dn: uid=test05,ou=people,dc=example,dc=com
+uid: test05
+cn: test05
+mail: test05@example.com
+objectClass: inetOrgPerson
+objectClass: top
+userPassword: {SSHA}/Ufyq/UFeL2pphIslyRTts1snDyiJ4+t
+sn: test05

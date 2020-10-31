@@ -1,0 +1,71 @@
+version: "3"
+
+services:
+  redmine:
+    image: redmine:4.1.1
+    container_name: redmine
+    volumes:
+      - ./volumes/redmine/files:/usr/src/redmine/files
+      - ./volumes/redmine/plugins:/usr/src/redmine/plugins
+      - ./volumes/redmine/config/configuration.yml:/usr/src/redmine/config/configuration.yml
+      - ./volumes/redmine/public/themes:/usr/src/redmine/public/themes
+      - ./volumes/redmine/sqlite:/usr/src/redmine/sqlite
+    ports:
+      - 3000:3000
+    environment:
+      - TZ=Asia/Tokyo
+
+  mail-server:
+    image: tvial/docker-mailserver:latest
+    container_name: mail-server
+    hostname: mail
+    domainname: example.com
+    ports:
+      - "25"
+      - "110"
+      - "143"
+    volumes:
+      - ./volumes/mail-server/config/:/tmp/docker-mailserver/
+    environment:
+      - DMS_DEBUG=0
+      - ENABLE_SPAMASSASSIN=0
+      - ENABLE_CLAMAV=0
+      - ENABLE_FETCHMAIL=0
+      - ENABLE_FAIL2BAN=0
+      - ENABLE_POSTGREY=0
+      - ENABLE_POP3=1
+    cap_add:
+      - NET_ADMIN
+      - SYS_PTRACE
+    restart: always
+
+  rainloop:
+    image: hardware/rainloop
+    container_name: rainloop
+    ports:
+      - "3001:8888"
+    volumes:
+      - ./volumes/rainloop/data/:/rainloop/data
+
+  openldap:
+    container_name: openldap
+    build: ./docker/openldap
+    ports:
+      - '389'
+    environment:
+      LDAP_DOMAIN: "example.com"
+      LDAP_ADMIN_PASSWORD: "password"
+    volumes:
+      - ./volumes/openldap/var/lib/ldap:/var/lib/ldap
+      - ./volumes/openldap/etc/ldap/slapd.d:/etc/ldap/slapd.d
+
+  phpldapadmin:
+    image: osixia/phpldapadmin:latest
+    container_name: phpldapadmin
+    environment:
+      PHPLDAPADMIN_LDAP_HOSTS: "openldap"
+      PHPLDAPADMIN_HTTPS: "false"
+    ports:
+      - "3002:80"
+    depends_on:
+      - openldap
